@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*Styles for the Header*/
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--text-secondary-color);
+    margin-top: 10px;
+}
+
+.loginLink {
+    justify-self: end;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.icon {
+    stroke: var(--primary);
+    transition: stroke 0.3s ease;
+}
+
+.loginLink:hover {
+    background-color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.loginLink:hover .icon {
+    stroke: var(--primary--on--secondary--bg);
+}
+
+/*Styles for the Progress Bar*/
+.progressContainer {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.progressText {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressStep {
+    font-size: 0.9em;
+    color: var(--text-secondary-color);
+}
+
+.barContainer {
+    width: 100%;
+    background-color: var(--text-secondary-color);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.progressBar {
+    height: 100%;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+/*Back button*/
+.backButton {
+    align-self: flex-start;
+    background-color: var(--bg-color);
+    font-size: 1rem;
+    border: none;
+    color: var(--text-secondary-color);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.backButton:hover {
+    background-color: var(--primary-dimmed);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
