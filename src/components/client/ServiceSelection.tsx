@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import type { Service } from "../../models/Service";
 import { getServices } from "../../services/servicesService";
-import style from "../../styles/components/client/ServiceSelection.module.css";
+import style from "../../styles/client/ServiceSelection.module.css";
 
 type ServiceSelectionProps = {
     onServiceSelect: (service: Service) => void;

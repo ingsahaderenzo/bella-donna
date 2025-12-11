@@ -2,7 +2,8 @@ import { useState } from "react";
 import type { Service } from "../models/Service";
 import type { BookingData } from "../models/BookingData";
 import { ServiceSelection } from "../components/client/ServiceSelection";
-import styles from "../styles/ClientPage.module.css";
+import styles from "../styles/pages/ClientPage.module.css";
+import { DateSelection } from "../components/client/DateSelection";
 
 export default function ClientPage() {
     const [step, setStep] = useState(1);
@@ -12,6 +13,12 @@ export default function ClientPage() {
     const handleServiceSelect = (service: Service) => {
         setBookingData({ ...bookingData, service });
         setStep(2);
+    };
+
+    // Handler for selecting a date
+    const handleDateSelect = (date: Date) => {
+        setBookingData({ ...bookingData, date });
+        setStep(3);
     };
 
     // Handler for going back a step
@@ -98,13 +105,13 @@ export default function ClientPage() {
                 {step === 1 && (
                     <ServiceSelection onServiceSelect={handleServiceSelect} />
                 )}
-                {/* {step === 2 && (
+                {step === 2 && (
                     <DateSelection
                         onDateSelect={handleDateSelect}
                         selectedDate={bookingData.date}
                     />
                 )}
-                {step === 3 && (
+                {/* step === 3 && (
                     <TimeSelection
                         onTimeSelect={handleTimeSelect}
                         selectedDate={bookingData.date!}
