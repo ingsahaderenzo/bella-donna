@@ -6,6 +6,7 @@
     --primary: #d44996;
     --primary-dimmed: #ff93ce9d;
     --primary--on--secondary--bg: #ffffff;
+    --border: #b8b8b873;
 }
 
 /* Reset global */
@@ -14,6 +15,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 html {
@@ -26,7 +28,6 @@ body {
     min-height: 100vh;
     background: var(--bg-color);
     color: var(--text-color);
-    font-family: "Inter", sans-serif;
     transition: background 0.3s ease, color 0.3s ease;
     margin: 0;
     padding: 0;
