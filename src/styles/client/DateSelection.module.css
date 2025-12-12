@@ -1,0 +1,163 @@
+.container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 14px;
+    background-color: var(--primary--on--secondary--bg);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/*Section of the title*/
+.titleBox {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+    align-self: flex-start;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary-color);
+}
+
+/*Section of calendar*/
+.calendarBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.monthBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.monthBox button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-color);
+}
+
+.monthBox h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.calendarGrid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dayList {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.dayList > div {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary-color);
+    padding: 0.5rem;
+}
+
+.dateGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.dateGrid button,
+.dateGrid > div {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+}
+
+.dateGrid button:hover:not(:disabled) {
+    background-color: var(--primary-dimmed);
+}
+
+.dateGrid button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.dateGrid button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Estilos para la fecha seleccionada - ajusta los colores según tu diseño */
+.dateGrid button.selected {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.monthButton {
+    font-size: 1rem;
+    padding: 2rem;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.monthButton:hover {
+    background-color: var(--primary-dimmed);
+    transition: all 0.3s ease;
+}
+
+.monthText {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 640px) {
+    .dayList > div {
+        font-size: 0.75rem; /* Más pequeño en mobile */
+        padding: 0.25rem;
+    }
+
+    .dateGrid button,
+    .dateGrid > div {
+        font-size: 0.875rem;
+    }
+}

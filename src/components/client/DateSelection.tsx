@@ -40,8 +40,24 @@ export function DateSelection({
         setCurrentDate(new Date(year, month - 1, 1));
     };
 
+    const isCurrentMonth = () => {
+        const today = new Date();
+        return year === today.getFullYear() && month === today.getMonth();
+    };
+
     const goToNextMonth = () => {
-        setCurrentDate(new Date(year, month + 1, 1));
+        const newDate = new Date(year, month + 1, 1);
+        const today = new Date();
+        const maxMonths = 3; // Permitir reservar hasta 6 meses adelante
+
+        const monthDiff =
+            (newDate.getFullYear() - today.getFullYear()) * 12 +
+            (newDate.getMonth() - today.getMonth());
+
+        if (monthDiff >= maxMonths) {
+            return; // No permitir avanzar más
+        }
+        setCurrentDate(newDate);
     };
 
     const isPastDate = (day: number) => {
@@ -73,39 +89,55 @@ export function DateSelection({
     }
 
     return (
-        <section>
-            <article>
-                <h2>Selecciona la fecha</h2>
-                <p>Elige el día de tu cita</p>
+        <section className={style.container}>
+            <article className={style.titleBox}>
+                <h2 className={style.title}>Selecciona la fecha</h2>
+                <p className={style.subtitle}>Elige el día de tu cita</p>
             </article>
 
-            <article>
+            <article className={style.calendarBox}>
                 {/* Month navigation */}
-                <div>
-                    <button onClick={goToPreviousMonth}>ir a izquierda</button>
-                    <h3>
+                <div className={style.monthBox}>
+                    <button
+                        onClick={goToPreviousMonth}
+                        className={style.monthButton}
+                        disabled={isCurrentMonth()}
+                    >
+                        {"<"}
+                    </button>
+                    <h3 className={style.monthText}>
                         {monthNames[month]} {year}
                     </h3>
-                    <button onClick={goToNextMonth}>ir a derecha</button>
+                    <button
+                        onClick={goToNextMonth}
+                        className={style.monthButton}
+                    >
+                        {">"}
+                    </button>
                 </div>
 
                 {/* Calendar grid */}
-                <div>
+                <div className={style.calendarGrid}>
                     {/* Day headers */}
-                    <div>
+                    <div className={style.dayList}>
                         {daysOfWeek.map((day) => (
                             <div key={day}>{day}</div>
                         ))}
                     </div>
 
                     {/* Calendar days */}
-                    <div>
+                    <div className={style.dateGrid}>
                         {calendarDays.map((day, index) =>
                             typeof day === "number" ? (
                                 <button
                                     key={index}
                                     onClick={() => handleDateClick(day)}
                                     disabled={isPastDate(day)}
+                                    className={
+                                        isSelectedDate(day)
+                                            ? style.selected
+                                            : ""
+                                    }
                                 >
                                     {day}
                                 </button>
