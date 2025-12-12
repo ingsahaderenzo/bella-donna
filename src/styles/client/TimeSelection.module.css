@@ -1,0 +1,133 @@
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Header styles */
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 0.25rem 0;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary-color);
+    margin: 0;
+}
+
+/* Time grid */
+.timeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+/* Time slot button */
+.timeSlot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--primary--on--secondary--bg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 85px;
+}
+
+.timeSlot:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: #fdf4ff;
+}
+
+.timeSlot.selected {
+    border-color: var(--primary);
+    background: #fdf4ff;
+    border-width: 2px;
+}
+
+.timeSlot.occupied {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #fafafa;
+}
+
+.timeSlot.occupied:hover {
+    border-color: #e5e5e5;
+    background: #fafafa;
+}
+
+/* Clock icon */
+.clockIcon {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.timeSlot.occupied .clockIcon {
+    color: #999;
+}
+
+/* Time text */
+.timeText {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.timeSlot.occupied .timeText {
+    color: #999;
+}
+
+/* Occupied label */
+.occupiedText {
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 0.125rem;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .timeGrid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .timeSlot {
+        padding: 0.75rem;
+        min-height: 65px;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .clockIcon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .timeText {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .timeGrid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}

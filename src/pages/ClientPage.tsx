@@ -4,6 +4,7 @@ import type { BookingData } from "../models/BookingData";
 import { ServiceSelection } from "../components/client/ServiceSelection";
 import styles from "../styles/pages/ClientPage.module.css";
 import { DateSelection } from "../components/client/DateSelection";
+import { TimeSelection } from "../components/client/TimeSelection";
 
 export default function ClientPage() {
     const [step, setStep] = useState(1);
@@ -19,6 +20,12 @@ export default function ClientPage() {
     const handleDateSelect = (date: Date) => {
         setBookingData({ ...bookingData, date });
         setStep(3);
+    };
+
+    // Handler for selecting a time
+    const handleTimeSelect = (time: string) => {
+        setBookingData({ ...bookingData, time });
+        setStep(4);
     };
 
     // Handler for going back a step
@@ -111,14 +118,14 @@ export default function ClientPage() {
                         selectedDate={bookingData.date}
                     />
                 )}
-                {/* step === 3 && (
+                {step === 3 && (
                     <TimeSelection
                         onTimeSelect={handleTimeSelect}
                         selectedDate={bookingData.date!}
                         selectedTime={bookingData.time}
                     />
                 )}
-                {step === 4 && <ContactForm onSubmit={handleContactSubmit} />}
+                {/*step === 4 && <ContactForm onSubmit={handleContactSubmit} />}
                 {step === 5 && (
                     <Confirmation
                         bookingData={bookingData}
