@@ -1,0 +1,206 @@
+.container {
+    display: flex;
+    min-height: 60vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    background: var(--primary--on--secondary--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+    text-align: center;
+}
+
+/* Success icon */
+.iconWrapper {
+    margin: 0 auto 1rem;
+    display: flex;
+    height: 64px;
+    width: 64px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary--on--secondary--bg);
+}
+
+.checkIcon {
+    color: var(--primary);
+}
+
+/* Title and subtitle */
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary-color);
+    margin: 0 0 1.5rem 0;
+}
+
+/* Details card */
+.detailsCard {
+    background: #fdf4ff;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.section {
+    margin-bottom: 1rem;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.sectionTitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 0.75rem 0;
+}
+
+.sectionDivider {
+    height: 1px;
+    background: #e5e5e5;
+    margin: 1rem 0;
+}
+
+/* Detail items */
+.detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center; /* Cambié de flex-start a center */
+    gap: 0.75rem;
+}
+
+.detailIconWrapper {
+    border-radius: 50%;
+    background: var(--primary);
+    padding: 0.5rem; /* Aumenté el padding para que sea más circular */
+    flex-shrink: 0;
+    display: flex; /* Agregado para centrar el ícono */
+    align-items: center; /* Agregado para centrar el ícono */
+    justify-content: center; /* Agregado para centrar el ícono */
+    width: 32px; /* Ancho fijo */
+    height: 32px; /* Alto fijo para hacerlo perfectamente circular */
+}
+
+.detailIcon {
+    color: var(--primary--on--secondary--bg);
+    width: 16px; /* Tamaño fijo del ícono */
+    height: 16px;
+}
+
+.detailText {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.4; /* Agregado para mejor alineación */
+}
+
+.detailSubtext {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0.125rem 0 0 0;
+}
+
+/* Contact info */
+.contactText {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0.25rem 0;
+}
+
+/* Email reminder box */
+.reminderBox {
+    display: flex;
+    align-items: center; /* Cambié de flex-start a center */
+    gap: 0.5rem;
+    background: rgba(217, 70, 239, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mailIcon {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.reminderText {
+    font-size: 0.75rem;
+    color: #1a1a1a;
+    text-align: left;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* New booking button */
+.newBookingButton {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: white;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.newBookingButton:hover {
+    background: #fafafa;
+    border-color: var(--primary);
+}
+
+.newBookingButton:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .iconWrapper {
+        height: 56px;
+        width: 56px;
+    }
+
+    .checkIcon {
+        width: 28px;
+        height: 28px;
+    }
+}

@@ -6,6 +6,7 @@ import styles from "../styles/pages/ClientPage.module.css";
 import { DateSelection } from "../components/client/DateSelection";
 import { TimeSelection } from "../components/client/TimeSelection";
 import { ContactForm } from "../components/client/ContactForm";
+import { Confirmation } from "../components/client/Confirmation";
 
 export default function ClientPage() {
     const [step, setStep] = useState(1);
@@ -35,6 +36,11 @@ export default function ClientPage() {
         setStep(5);
     };
 
+    const handleNewBooking = () => {
+        setBookingData({});
+        setStep(1);
+    };
+
     // Handler for going back a step
     const handleBack = () => {
         if (step > 1) {
@@ -53,23 +59,25 @@ export default function ClientPage() {
                     </p>
                 </div>
 
-                <a href="/login" className={styles.loginLink}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="26"
-                        height="26"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={styles.icon}
-                    >
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01A1.65 1.65 0 0 0 9 2.09V2a2 2 0 1 1 4 0v.09c0 .69.4 1.31 1 1.51a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01c.2.6.82 1 1.51 1H22a2 2 0 1 1 0 4h-.09c-.69 0-1.31.4-1.51 1z" />
-                    </svg>
-                </a>
+                {step == 1 && (
+                    <a href="/login" className={styles.loginLink}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="26"
+                            height="26"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className={styles.icon}
+                        >
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01A1.65 1.65 0 0 0 9 2.09V2a2 2 0 1 1 4 0v.09c0 .69.4 1.31 1 1.51a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01c.2.6.82 1 1.51 1H22a2 2 0 1 1 0 4h-.09c-.69 0-1.31.4-1.51 1z" />
+                        </svg>
+                    </a>
+                )}
             </header>
 
             {/* Progress indicator */}
@@ -133,12 +141,12 @@ export default function ClientPage() {
                     />
                 )}
                 {step === 4 && <ContactForm onSubmit={handleContactSubmit} />}
-                {/*step === 5 && (
+                {step === 5 && (
                     <Confirmation
                         bookingData={bookingData}
                         onNewBooking={handleNewBooking}
                     />
-                )} */}
+                )}
             </div>
         </div>
     );
